@@ -5,9 +5,10 @@ function Projects() {
     {
       title: "Gestor de Notas",
       description: "Aplicación para gestionar notas con autenticación y CRUD completo.",
-      linkRepo: "https://github.com/tuusuario/gestor-de-notas", // Reemplaza con tu enlace
+      linkRepo: "https://github.com/Simonghost117/Gestor-de-Notas.git", // Reemplaza con tu enlace
       linkDemo: "https://tu-pagina-web.com", // Reemplaza con tu enlace
-      image: "https://via.placeholder.com/300x200.png?text=Gestor+de+Notas", // Reemplaza con la imagen
+      linkDocs: "public/docs/documentacion_NotasApp.pdf", // Reemplaza con el enlace a la documentación
+      image: "src/images/notasApp.png", // Reemplaza con la imagen
     },
     {
       title: "Proyecto 2",
@@ -21,6 +22,7 @@ function Projects() {
       description: "Descripción breve del Proyecto 3. Se enfoca en funcionalidades ABC.",
       linkRepo: "https://github.com/tuusuario/proyecto-3", // Reemplaza con tu enlace
       linkDemo: "https://proyecto-3-demo.com", // Reemplaza con tu enlace
+      //linkDocs: "https://proyecto-3-demo.com/docs", // Reemplaza con el enlace a la documentación
       image: "https://via.placeholder.com/300x200.png?text=Proyecto+3", // Reemplaza con la imagen
     },
   ];
@@ -33,13 +35,15 @@ function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transform transition duration-300"
+              className="bg-gray-800 p-5 rounded-lg shadow-3l hover:scale-105 transform transition duration-300"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
+              <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <h3 className="text-xl font-semibold text-teal-400">{project.title}</h3>
               <p className="text-gray-300 mt-4">{project.description}</p>
               <div className="flex justify-center gap-4 mt-4">
@@ -59,6 +63,16 @@ function Projects() {
                 >
                   Ver Demo
                 </a>
+                {project.linkDocs && (
+                  <a
+                    href={project.linkDocs}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
+                  >
+                    Ver Documentación
+                  </a>
+                )}
               </div>
             </div>
           ))}
